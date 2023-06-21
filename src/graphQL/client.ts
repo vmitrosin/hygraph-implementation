@@ -1,6 +1,6 @@
-import {ApolloClient, InMemoryCache} from "@apollo/client";
+import {ApolloClient, InMemoryCache} from "@apollo/react-hooks";
 
 export const client = new ApolloClient({
-  uri: 'https://api-eu-west-2.hygraph.com/v2/cli7wz01v3t9301t9eprl3906/master',
+  uri: process.env.REACT_APP_HYGRAPH_API,
   cache: new InMemoryCache(),
 });
