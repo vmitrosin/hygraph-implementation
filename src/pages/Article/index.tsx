@@ -1,8 +1,8 @@
 import {useQuery} from '@apollo/client';
 import React from 'react';
 import {useParams} from 'react-router-dom';
+import { RichText } from '@graphcms/rich-text-react-renderer';
 import {GET_ARTICLE} from '../../graphQL/queries';
-import Markdown from '../../components/Markdown';
 
 export default function Article() {
   const {slug} = useParams();
@@ -16,8 +16,16 @@ export default function Article() {
   return (
     <div>
       <h1>{data.article.title}</h1>
+
       <p>{data.article.slug}</p>
-      <Markdown content={data.article.content}/>
+
+      {data.article.featuredImage.url !== null &&
+        <img src={data.article.featuredImage.url} alt={data.article.title} style={{width: 400, height: 'auto'}} />
+      }
+
+      <div>
+        <RichText content={data.article.content.raw}/>
+      </div>
     </div>
   )
 }

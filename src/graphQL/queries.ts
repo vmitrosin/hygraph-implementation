@@ -4,6 +4,9 @@ export const ARTICLE_FRAGMENT = gql`
   fragment articleFragment on Article {
     id
     title
+    content {
+      raw
+    }
   }
 `;
 
@@ -22,7 +25,9 @@ export const GET_ARTICLE = gql`
   query getArticle($slug: String) {
     article(where: {slug: $slug}) {
       ...articleFragment
-      content
+      featuredImage {
+        url
+      }
     }
   }
 `;
