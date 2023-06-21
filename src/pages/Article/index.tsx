@@ -1,4 +1,4 @@
-import {useQuery} from '@apollo/client';
+import {useQuery} from '@apollo/react-hooks';
 import React from 'react';
 import {useParams} from 'react-router-dom';
 import {GET_ARTICLE} from '../../graphQL/queries';

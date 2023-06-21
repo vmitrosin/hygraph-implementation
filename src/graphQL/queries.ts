@@ -1,4 +1,4 @@
-import {gql} from "@apollo/client";
+import {gql} from "graphql-tag";
 
 export const ARTICLE_FRAGMENT = gql`
   fragment articleFragment on Article {
